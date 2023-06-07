@@ -11,31 +11,31 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([
     {
-      id: Date.now().toString(),
+      id: 1001,
       name: "Colchón Kamikase",
       description: "Duerma o Muera en den 50",
       price: 224000,
     },
     {
-      id: Date.now().toString(),
+      id: 1002,
       name: "Colchón Químico",
       description: "Ignífugo para fumadores den 30",
       price: 250000,
     },
     {
-      id: Date.now().toString(),
+      id: 1003,
       name: "Colchón Pasti",
       description: "La cura del dolor den 100",
       price: 375000,
     },
     {
-      id: Date.now().toString(),
+      id: 1004,
       name: "Colchón Amor",
       description: "Duerma solo den 1",
       price: 20000,
     },
     {
-      id: Date.now().toString(),
+      id: 1005,
       name: "Colchón Party",
       description: "Hasta 30 en den 4",
       price: 1250000,
