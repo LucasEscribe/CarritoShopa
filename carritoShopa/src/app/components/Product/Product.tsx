@@ -1,5 +1,5 @@
-import styles from "./product.module.css";
 import { useState } from "react";
+import styles from "./product.module.css";
 
 type ProductProps = {
   id: number;
@@ -8,9 +8,8 @@ type ProductProps = {
   price: number;
   updateTotal: (subtotal: number) => void;
   removeItem: (subtotal: number) => void;
+  calcTotal: () => number;
 };
-
-let supertotal = 0;
 
 function Product(props: ProductProps) {
   const [quantity, setQuantity] = useState(0);
@@ -36,7 +35,6 @@ function Product(props: ProductProps) {
   });
 
   const subtotal = quantity * props.price;
-  supertotal = supertotal + subtotal;
   const formattedSubtotal = subtotal.toLocaleString("es-AR", {
     style: "currency",
     currency: "ARS",
@@ -46,7 +44,7 @@ function Product(props: ProductProps) {
   return (
     <div className={styles.product_container}>
       <h2>{props.name}</h2>
-      <h3>{props.description}</h3>
+      <h3 className={styles.empty_description}>{props.description}</h3>
       <p>{formattedPrice}</p>
       <div>
         <button onClick={handleRemoveUnit}>-</button>

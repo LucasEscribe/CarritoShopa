@@ -1,0 +1,62 @@
+.root {
+    background-color: var(--general-background-color);
+}
+
+.side_left {
+    height: 100%;
+    width: 30%;
+    float: left;
+    justify-content: left;
+    }
+
+    .title_left{
+        text-align: center;
+}
+  
+.center {
+    height: 100%;
+    width: 60%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .title_center {
+    text-align: center;
+  }
+  
+  .grid_products {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
+}
+  
+.side_right {
+    height: 100%;
+    width: 10%;
+    float: right;
+}
+
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .side_left,
+    .center,
+    .side_right {
+      width: 100%; /* Ocupar el 100% del ancho en dispositivos móviles */
+      float: none; /* No utilizar flotado en dispositivos móviles */
+    }
+    
+    .center {
+      align-items: flex-start; /* Alinear los elementos al inicio en dispositivos móviles */
+    }
+    
+    .grid_products {
+      justify-content: center; /* Centrar las tarjetas en dispositivos móviles */
+    }
+  }

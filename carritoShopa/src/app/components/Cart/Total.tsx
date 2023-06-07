@@ -1,14 +1,22 @@
 import styles from "./total.module.css";
 
-type ShopoProps = {
-  totalPrice: number;
+type TotalProps = {
+  subtotals: number[];
 };
 
-function Total(props: ShopoProps) {
+function Total(props: TotalProps) {
+  const total = props.subtotals.reduce((accumulator, subtotal) => accumulator + subtotal, 0);
+
+  const formattedTotal = total.toLocaleString("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    minimumFractionDigits: 2,
+  });
+
   return (
     <div className={styles.total}>
       <img src="/src/app/assets/img/ico_carrito.ico" alt="icocno_carrito" width={32} height={32} />
-      <p>Total Carrito: {props.totalPrice}</p>
+      <p>Total Carrito: {formattedTotal}</p>
     </div>
   );
 }

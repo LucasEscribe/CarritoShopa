@@ -18,5 +18,8 @@
 .load label[for="new_product"] {
     font-weight: bold;
     text-decoration: underline;
-  }
-  
+}
+
+.empty_description {
+    height: 1rem;
+}

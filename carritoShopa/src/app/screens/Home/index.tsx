@@ -1,14 +1,14 @@
-import Product from "../../components/Product/Product.tsx";
-import LoadProduct from "../../components/Product/LoadProduct.tsx";
-import Total from "../../components/Cart/Total.tsx";
-
-import "./style.modules.css";
-
 import { useState } from "react";
+
+import Product from "../../components/Product/Product";
+import LoadProduct from "../../components/Product/LoadProduct";
+import Total from "../../components/Cart/Total";
+
+import "./styles.modules.css";
+import "../../../global.css";
 
 
 function App() {
-  const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([
     {
       id: 1001,
@@ -42,40 +42,50 @@ function App() {
     },
   ]);
 
+  const [subtotals, setSubtotals] = useState<number[]>([]);
+
   const updateTotal = (subtotal: number) => {
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + subtotal);
+    setSubtotals((prevSubtotals) => [...prevSubtotals, subtotal]);
   };
-  
+
   const removeItem = (subtotal: number) => {
-    setTotalPrice((prevTotalPrice) => prevTotalPrice - subtotal);
+    setSubtotals((prevSubtotals) => prevSubtotals.filter((sub) => sub !== subtotal));
+  };
+
+  const calcTotal = () => {
+    return subtotals.reduce((accumulator, subtotal) => accumulator + subtotal, 0);
   };
 
   return (
     <main>
-      <div className="side_left">
-        <h1 className="title_left">Cargar Producto</h1>
-        <LoadProduct products={products} setProducts={setProducts} />
-      </div>
+      <div className="root">
+        <div className="side_left">
+          <h1 className="title_left">Cargar Producto</h1>
+          <LoadProduct products={products} setProducts={setProducts} />
+        </div>
 
+        <div className="center">
+          <h1 className="title_center">Listado</h1>
+          <div className="grid_products">
+            {products.map((product) => (
+              <Product
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                updateTotal={updateTotal}
+                removeItem={removeItem}
+                calcTotal={calcTotal}
+              />
+            ))}
+          </div>
+        </div>
 
-      <div className="center">
-        <h1 className="title_center">Listado</h1>
-        {products.map((product) => (
-          <Product
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            description={product.description}
-            price={product.price}
-            updateTotal={updateTotal}
-            removeItem={removeItem}
-          />
-        ))}
-      </div>
-
-      <div className="side_right">
-        <h2 className="title_right">Carrito Shopo</h2>
-        <Total totalPrice={totalPrice} />
+        <div className="side_right">
+          <h2 className="title_right">Carrito Shopo</h2>
+          <Total subtotals={subtotals} />
+        </div>
       </div>
     </main>
   );
