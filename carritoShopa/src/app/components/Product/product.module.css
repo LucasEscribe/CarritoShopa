@@ -1,4 +1,6 @@
 .product_container{
+    border: solid 1px white;
+    border-radius: 10px;
     padding: auto;
 }
 
@@ -22,4 +24,14 @@
 
 .empty_description {
     height: 1rem;
+}
+
+.button_load {
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+.handler_subtotal{
+    display: flexbox;
+    align-items: last baseline;
 }

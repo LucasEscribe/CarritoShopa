@@ -1,12 +1,15 @@
 .root {
     background-color: var(--general-background-color);
+    display: flex;
+
 }
 
 .side_left {
-    height: 100%;
+    height: auto;
     width: 30%;
     float: left;
     justify-content: left;
+    background-color: aquamarine;
     }
 
     .title_left{
@@ -14,7 +17,8 @@
 }
   
 .center {
-    height: 100%;
+  background-color:rgb(69 , 128, 128);
+    height: auto;
     width: 60%;
     float: left;
     display: flex;
@@ -34,29 +38,14 @@
     justify-content: space-around;
     align-items: flex-start;
     gap: 10px;
-}
+  }
   
 .side_right {
-    height: 100%;
+    height: auto;
     width: 10%;
     float: right;
+    background-color: rgb(93, 180, 134);
 }
 
 
-/* Estilos responsive */
-@media (max-width: 768px) {
-    .side_left,
-    .center,
-    .side_right {
-      width: 100%; /* Ocupar el 100% del ancho en dispositivos móviles */
-      float: none; /* No utilizar flotado en dispositivos móviles */
-    }
-    
-    .center {
-      align-items: flex-start; /* Alinear los elementos al inicio en dispositivos móviles */
-    }
-    
-    .grid_products {
-      justify-content: center; /* Centrar las tarjetas en dispositivos móviles */
-    }
-  }
+  

@@ -46,7 +46,7 @@ function Product(props: ProductProps) {
       <h2>{props.name}</h2>
       <h3 className={styles.empty_description}>{props.description}</h3>
       <p>{formattedPrice}</p>
-      <div>
+      <div className={styles.handler_subtotal}>
         <button onClick={handleRemoveUnit}>-</button>
         <span>{quantity}</span>
         <button onClick={handleAddUnit}>+</button>

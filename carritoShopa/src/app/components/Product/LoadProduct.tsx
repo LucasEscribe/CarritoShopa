@@ -81,7 +81,7 @@ function LoadProduct(props: LoadProductProps) {
         onChange={(event) => setNewPrice(event.target.value)}
       />
 
-      <button type="submit" onClick={handleClick}>
+      <button className={styles.button_load} type="submit" onClick={handleClick}>
         Cargar
       </button>
     </div>
