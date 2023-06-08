@@ -4,7 +4,8 @@ import Product from "../../components/Product/Product";
 import LoadProduct from "../../components/Product/LoadProduct";
 import Total from "../../components/Cart/Total";
 
-import "./styles.modules.css";
+
+import styles from "./styles.module.css";
 import "../../../global.css";
 
 
@@ -58,15 +59,15 @@ function App() {
 
   return (
     <main>
-      <div className="root">
-        <div className="side_left">
-          <h1 className="title_left">Cargar Producto</h1>
+      <div className={styles.root}>
+        <div className={styles.side_left}>
+          <h1 className={styles.title_left}>Cargar Producto</h1>
           <LoadProduct products={products} setProducts={setProducts} />
         </div>
 
-        <div className="center">
-          <h1 className="title_center">Listado</h1>
-          <div className="grid_products">
+        <div className={styles.center}>
+          <h1 className={styles.title_center}>Listado</h1>
+          <div className={styles.grid_products}>
             {products.map((product) => (
               <Product
                 key={product.id}
@@ -82,8 +83,8 @@ function App() {
           </div>
         </div>
 
-        <div className="side_right">
-          <h2 className="title_right">Carrito Shopo</h2>
+        <div className={styles.side_right}>
+          <h2 className={styles.title_right}>Carrito Shopo</h2>
           <Total subtotals={subtotals} />
         </div>
       </div>
