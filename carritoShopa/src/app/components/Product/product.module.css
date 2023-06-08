@@ -1,9 +1,43 @@
-.product_container{
-    border: solid 1px white;
-    border-radius: 10px;
-    padding: auto;
+.grid_products {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
 }
 
+.product_container {
+    border: solid 1px white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.inputs {
+    font-size: 16px;
+    color: white;
+    background-color: gray;
+}
+
+.inputs::placeholder {
+    color: white;
+  }
+
+.add {
+    font-size: 18px;
+    color: white;
+    background-color: gray;
+}
+  
+.remove {
+    font-size: 18px;
+    color: white;
+    background-color: gray;
+}
+  
+
+/* Estilo de Carga Producto */
+  
 .load {
     display: flex;
     flex-direction: column;
@@ -12,26 +46,26 @@
     align-items: center;
     margin: 20px;
 }
-
+  
 .load label {
     margin-bottom: 10px;
 }
-
+  
 .load label[for="new_product"] {
     font-weight: bold;
     text-decoration: underline;
 }
-
+  
 .empty_description {
     height: 1rem;
 }
-
+  
 .button_load {
     margin-top: 10px;
     border-radius: 3px;
 }
-
-.handler_subtotal{
-    display: flexbox;
+  
+.handler_subtotal {
+    display: flex;
     align-items: last baseline;
 }

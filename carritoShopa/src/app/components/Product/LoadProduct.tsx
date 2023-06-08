@@ -51,10 +51,13 @@ function LoadProduct(props: LoadProductProps) {
         Nombre
       </label>
       <input
+        className={styles.inputs}
         type="text"
         name="product_name"
+        placeholder="ingrese nombre"
         id="name"
         value={newName}
+        onClick={() => setNewName(" ")}
         onChange={(event) => setNewName(event.target.value)}
       />
 
@@ -62,11 +65,13 @@ function LoadProduct(props: LoadProductProps) {
         Descripción
       </label>
       <input
+        className={styles.inputs}
         type="text"
         name="product_description"
         placeholder="descripción opcional"
         id="description"
         value={newDescription}
+        onClick={() => setNewDescription(" ")}
         onChange={(event) => setNewDescription(event.target.value)}
       />
 
@@ -74,10 +79,13 @@ function LoadProduct(props: LoadProductProps) {
         Precio
       </label>
       <input
+        className={styles.inputs}
         type="text"
         name="product_price"
+        placeholder="descripción precio"
         id="price"
         value={newPrice}
+        onClick={() => setNewPrice(" ")}
         onChange={(event) => setNewPrice(event.target.value)}
       />
 
