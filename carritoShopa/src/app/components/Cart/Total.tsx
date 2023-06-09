@@ -1,11 +1,8 @@
 import styles from "./total.module.css";
 
-type TotalProps = {
-  subtotals: number[];
-};
 
-function Total(props: TotalProps) {
-  const total = props.subtotals.reduce((accumulator, subtotal) => accumulator + subtotal, 0);
+function Total() {
+  const total = 0;
 
   const formattedTotal = total.toLocaleString("es-AR", {
     style: "currency",

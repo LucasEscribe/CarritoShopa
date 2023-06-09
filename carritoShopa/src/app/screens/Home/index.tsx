@@ -43,20 +43,6 @@ function App() {
     },
   ]);
 
-  const [subtotals, setSubtotals] = useState<number[]>([]);
-
-  const updateTotal = (subtotal: number) => {
-    setSubtotals((prevSubtotals) => [...prevSubtotals, subtotal]);
-  };
-
-  const removeItem = (subtotal: number) => {
-    setSubtotals((prevSubtotals) => prevSubtotals.filter((sub) => sub !== subtotal));
-  };
-
-  const calcTotal = () => {
-    return subtotals.reduce((accumulator, subtotal) => accumulator + subtotal, 0);
-  };
-
   return (
     <main>
       <div className={styles.root}>
@@ -75,9 +61,6 @@ function App() {
                 name={product.name}
                 description={product.description}
                 price={product.price}
-                updateTotal={updateTotal}
-                removeItem={removeItem}
-                calcTotal={calcTotal}
               />
             ))}
           </div>
@@ -85,7 +68,7 @@ function App() {
 
         <div className={styles.side_right}>
           <h2 className={styles.title_right}>Carrito Shopo</h2>
-          <Total subtotals={subtotals} />
+          <Total />
         </div>
       </div>
     </main>

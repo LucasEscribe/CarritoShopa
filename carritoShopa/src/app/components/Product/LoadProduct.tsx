@@ -23,13 +23,13 @@ function LoadProduct(props: LoadProductProps) {
       alert("Por favor, ingrese el nombre y el precio del producto.");
       return;
     }
-  
+
     const parsedPrice = parseFloat(newPrice);
     if (isNaN(parsedPrice)) {
       alert("El precio debe ser un número válido.");
       return;
     }
-    
+
     const lastProductId = props.products[props.products.length - 1]?.id || 1000;
     const newProductId = lastProductId + 1;
     const newProduct: Product = {
@@ -41,7 +41,6 @@ function LoadProduct(props: LoadProductProps) {
 
     props.setProducts([...props.products, newProduct]);
   };
-
 
   return (
     <div className={styles.load}>
@@ -68,7 +67,7 @@ function LoadProduct(props: LoadProductProps) {
         className={styles.inputs}
         type="text"
         name="product_description"
-        placeholder="descripción opcional"
+        placeholder="descripción del producto"
         id="description"
         value={newDescription}
         onClick={() => setNewDescription(" ")}

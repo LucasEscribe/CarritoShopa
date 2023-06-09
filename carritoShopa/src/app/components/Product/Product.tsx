@@ -1,30 +1,23 @@
-import { useState } from "react";
 import styles from "./product.module.css";
+import { useState } from "react";
 
 type ProductProps = {
   id: number;
   name: string;
   description: string;
   price: number;
-  updateTotal: (subtotal: number) => void;
-  removeItem: (subtotal: number) => void;
-  calcTotal: () => number;
 };
 
 function Product(props: ProductProps) {
   const [quantity, setQuantity] = useState(0);
 
   const handleAddUnit = () => {
-    setQuantity((quantity) => quantity + 1);
-    const subtotal = (quantity + 1) * props.price;
-    props.updateTotal(subtotal);
+    setQuantity((prevQuantity) => prevQuantity + 1);
   };
 
   const handleRemoveUnit = () => {
     if (quantity > 0) {
-      setQuantity((quantity) => quantity - 1);
-      const subtotal = (quantity - 1) * props.price;
-      props.removeItem(subtotal);
+      setQuantity((prevQuantity) => prevQuantity - 1);
     }
   };
 
@@ -47,9 +40,17 @@ function Product(props: ProductProps) {
       <h3 className={styles.empty_description}>{props.description}</h3>
       <p>{formattedPrice}</p>
       <div className={styles.handler_subtotal}>
-        <button className={styles.remove} onClick={handleRemoveUnit}>-</button>
+        <button className={styles.remove} onClick={() => {
+          handleRemoveUnit();
+        }}>
+          -
+        </button>
         <span>{quantity}</span>
-        <button className={styles.add} onClick={handleAddUnit}>+</button>
+        <button className={styles.add} onClick={() => {
+          handleAddUnit();
+        }}>
+          +
+        </button>
         <span>Subtotal: {formattedSubtotal}</span>
       </div>
     </div>
