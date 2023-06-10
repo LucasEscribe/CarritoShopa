@@ -1,10 +1,11 @@
 import styles from "./total.module.css";
 
+type TotalProps = {
+  totalPrice: number;
+};
 
-function Total() {
-  const total = 0;
-
-  const formattedTotal = total.toLocaleString("es-AR", {
+function Total(props: TotalProps) {
+  const formattedTotal = props.totalPrice.toLocaleString("es-AR", {
     style: "currency",
     currency: "ARS",
     minimumFractionDigits: 2,

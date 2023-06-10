@@ -1,13 +1,10 @@
 import { useState } from "react";
-
 import Product from "../../components/Product/Product";
 import LoadProduct from "../../components/Product/LoadProduct";
 import Total from "../../components/Cart/Total";
 
-
 import styles from "./styles.module.css";
 import "../../../global.css";
-
 
 function App() {
   const [products, setProducts] = useState([
@@ -43,6 +40,16 @@ function App() {
     },
   ]);
 
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const handleAddProductToCart = (price: number) => {
+    setTotalPrice(totalPrice + price);
+  };
+
+  const handleRemoveProductFromCart = (price: number) => {
+    setTotalPrice(totalPrice - price);
+  };
+
   return (
     <main>
       <div className={styles.root}>
@@ -61,6 +68,8 @@ function App() {
                 name={product.name}
                 description={product.description}
                 price={product.price}
+                handleAddProductToCart={handleAddProductToCart}
+                handleRemoveProductFromCart={handleRemoveProductFromCart}
               />
             ))}
           </div>
@@ -68,7 +77,7 @@ function App() {
 
         <div className={styles.side_right}>
           <h2 className={styles.title_right}>Carrito Shopo</h2>
-          <Total />
+          <Total totalPrice={totalPrice} />
         </div>
       </div>
     </main>

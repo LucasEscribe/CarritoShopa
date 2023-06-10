@@ -6,6 +6,8 @@ type ProductProps = {
   name: string;
   description: string;
   price: number;
+  handleAddProductToCart: (price: number) => void;
+  handleRemoveProductFromCart: (price: number) => void;
 };
 
 function Product(props: ProductProps) {
@@ -13,11 +15,13 @@ function Product(props: ProductProps) {
 
   const handleAddUnit = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
+    props.handleAddProductToCart(props.price);
   };
 
   const handleRemoveUnit = () => {
     if (quantity > 0) {
       setQuantity((prevQuantity) => prevQuantity - 1);
+      props.handleRemoveProductFromCart(props.price);
     }
   };
 
@@ -40,15 +44,21 @@ function Product(props: ProductProps) {
       <h3 className={styles.empty_description}>{props.description}</h3>
       <p>{formattedPrice}</p>
       <div className={styles.handler_subtotal}>
-        <button className={styles.remove} onClick={() => {
-          handleRemoveUnit();
-        }}>
+        <button
+          className={styles.remove}
+          onClick={() => {
+            handleRemoveUnit();
+          }}
+        >
           -
         </button>
         <span>{quantity}</span>
-        <button className={styles.add} onClick={() => {
-          handleAddUnit();
-        }}>
+        <button
+          className={styles.add}
+          onClick={() => {
+            handleAddUnit();
+          }}
+        >
           +
         </button>
         <span>Subtotal: {formattedSubtotal}</span>

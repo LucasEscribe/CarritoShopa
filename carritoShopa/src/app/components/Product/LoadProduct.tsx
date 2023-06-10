@@ -81,7 +81,7 @@ function LoadProduct(props: LoadProductProps) {
         className={styles.inputs}
         type="text"
         name="product_price"
-        placeholder="descripción precio"
+        placeholder="ingrese precio"
         id="price"
         value={newPrice}
         onClick={() => setNewPrice(" ")}
